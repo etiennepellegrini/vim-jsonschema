@@ -21,13 +21,13 @@ Created by ChatGPT 4.5
 ### With [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug '~/path/to/vim-jsonschema'
+Plug 'etiennepellegrini/vim-jsonschema'
 ```
 
 ### Or clone manually
 
 ```bash
-git clone https://github.com/yourname/vim-jsonschema ~/.vim/pack/jsonschema/start/vim-jsonschema
+git clone https://github.com/etiennepellegrini/vim-jsonschema ~/.vim/pack/jsonschema/start/vim-jsonschema
 ```
 
 ---
@@ -57,17 +57,12 @@ au BufReadPost *.json
 " Load standard JSON syntax
 runtime! syntax/json.vim
 
-" Add JSON Schema-specific keywords
-syntax keyword jsonSchemaKeyword
-      \ $schema $id $ref $defs $anchor $dynamicRef $dynamicAnchor $vocabulary $comment
-      \ type enum const multipleOf maximum exclusiveMaximum minimum exclusiveMinimum
-      \ maxLength minLength pattern format contentMediaType contentEncoding contentSchema
-      \ items additionalItems prefixItems contains maxItems minItems uniqueItems
-      \ maxContains minContains properties patternProperties additionalProperties
-      \ propertyNames required dependentSchemas dependentRequired
-      \ allOf anyOf oneOf not if then else
-      \ unevaluatedItems unevaluatedProperties
-      \ title description default deprecated readOnly writeOnly examples
+syntax match jsonSchemaKeyword /"\$schema"/
+syntax match jsonSchemaKeyword /"\$id"/
+syntax match jsonSchemaKeyword /"\$ref"/
+syntax match jsonSchemaKeyword /"\$defs"/
+syntax match jsonSchemaKeyword /"\$anchor"/
+" ... and so on ...
 
 highlight default link jsonSchemaKeyword Keyword
 
