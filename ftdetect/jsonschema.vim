@@ -1,8 +1,10 @@
-" Detect files by extension
-au BufNewFile,BufRead *.schema.json,*.jsonschema set filetype=jsonschema
+" Apply json.jsonschema filetype to schema-specific files
 
-" Or detect by presence of $schema keyword in content
+" Files with schema-specific extensions
+au BufNewFile,BufRead *.schema.json,*.jsonschema setfiletype json.jsonschema
+
+" Files containing $schema keyword in first 20 lines
 au BufReadPost *.json
       \ if getline(1,20)->join("\n") =~ '\$schema' |
-      \   setfiletype jsonschema |
+      \   setfiletype json.jsonschema |
       \ endif

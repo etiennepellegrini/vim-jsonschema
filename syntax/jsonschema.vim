@@ -16,4 +16,5 @@ syntax keyword jsonSchemaKeyword
 " Highlight Schema keywords like language keywords
 highlight default link jsonSchemaKeyword Keyword
 
+" Set our syntax to override b:current_syntax
 let b:current_syntax = "jsonschema"
